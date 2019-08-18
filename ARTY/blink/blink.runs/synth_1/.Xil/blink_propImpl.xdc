@@ -1,0 +1,13 @@
+set_property SRC_FILE_INFO {cfile:C:/code/fpga/blink/blink.srcs/constrs_1/new/blink.xdc rfile:../../../blink.srcs/constrs_1/new/blink.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN F14   IOSTANDARD LVCMOS33 } [get_ports { CLK }]; #IO_L13P_T2_MRCC_15 Sch=uclk
+set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN H13 [get_ports {RST}]
+set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN E18 [get_ports {LED[0]}]
+set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN F13 [get_ports {LED[1]}]
+set_property src_info {type:XDC file:1 line:16 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN E13 [get_ports {LED[2]}]
+set_property src_info {type:XDC file:1 line:19 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN H15 [get_ports {LED[3]}]
