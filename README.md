@@ -1,5 +1,3 @@
 # fpga_practice
 
-FPGAƒvƒƒOƒ‰ƒ~ƒ“ƒO‘å‘SXilinx•Ò‚È‚Ç‚Ì–{‚ðG‚Á‚Ä•×‹­‚·‚é‚¾‚¯‚ÌƒŠƒ|ƒWƒgƒŠ
-
-Žg—pƒ{[ƒh‚ÍARTY S7 revB‚ÆUltra96 v2(‚Ü‚¾–³‚¢)B“®ì‚Ì•ÛØ‚à‚È‚¢ijBi‚Ú‚­‚Ì@‚©‚ñ‚«‚å‚¤‚Å‚Í@‚¤‚²‚«‚Ü‚µ‚½IIIIj
+ä½¿ç”¨ãƒœãƒ¼ãƒ‰ã¯ARTY S7 rebBã¨Ultra96 v2(Ultra96ã®ã»ã†ã¯ã©ã†æ‰±ãˆã°ã„ã„ã®ã‹ã‚ˆãã‚ã‹ã£ã¦ãªã„)
