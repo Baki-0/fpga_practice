@@ -1,0 +1,50 @@
+$date
+	Sun Dec 27 13:46:30 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$scope module alutest $end
+$var wire 4 ! alu_code [3:0] $end
+$var wire 64 " op1 [63:0] $end
+$var wire 64 # op2 [63:0] $end
+$var wire 1 $ zero $end
+$var reg 64 % alu_result [63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 %
+1$
+b100 #
+b11 "
+b0 !
+$end
+#10000
+0$
+b110 %
+b10 !
+b11 #
+#20000
+1$
+b0 %
+b110 !
+b101 #
+b101 "
+#30000
+0$
+b111 %
+b1 !
+b100 #
+b11 "
+#40000
+1$
+b0 %
+b1000 !
+b11 #
+#50000

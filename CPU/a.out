@@ -1,0 +1,131 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x5572342ef5f0 .scope module, "testbench" "testbench" 2 4;
+ .timescale -9 -12;
+v0x5572343047b0_0 .var "alu_code", 3 0;
+v0x557234304890_0 .net "alu_result", 63 0, v0x557234304380_0;  1 drivers
+v0x557234304930_0 .var "input_data1", 63 0;
+v0x557234304a30_0 .var "input_data2", 63 0;
+v0x557234304b00_0 .net "zero", 0 0, L_0x557234314c80;  1 drivers
+S_0x5572342ef770 .scope module, "alutest" "alu" 2 11, 3 1 0, S_0x5572342ef5f0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "alu_code"
+    .port_info 1 /INPUT 64 "op1"
+    .port_info 2 /INPUT 64 "op2"
+    .port_info 3 /OUTPUT 64 "alu_result"
+    .port_info 4 /OUTPUT 1 "zero"
+L_0x7f000eb63018 .functor BUFT 1, C4<0000000000000000000000000000000000000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x5572342b8090_0 .net/2u *"_s0", 63 0, L_0x7f000eb63018;  1 drivers
+v0x5572343042a0_0 .net "alu_code", 3 0, v0x5572343047b0_0;  1 drivers
+v0x557234304380_0 .var "alu_result", 63 0;
+v0x557234304440_0 .net "op1", 63 0, v0x557234304930_0;  1 drivers
+v0x557234304520_0 .net "op2", 63 0, v0x557234304a30_0;  1 drivers
+v0x557234304650_0 .net "zero", 0 0, L_0x557234314c80;  alias, 1 drivers
+E_0x5572342b8890 .event edge, v0x5572343042a0_0, v0x557234304440_0, v0x557234304520_0;
+L_0x557234314c80 .cmp/eq 64, v0x557234304380_0, L_0x7f000eb63018;
+    .scope S_0x5572342ef770;
+T_0 ;
+    %wait E_0x5572342b8890;
+    %load/vec4 v0x5572343042a0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 4;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 4;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 4;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 6, 0, 4;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %pushi/vec4 0, 0, 64;
+    %store/vec4 v0x557234304380_0, 0, 64;
+    %jmp T_0.5;
+T_0.0 ;
+    %load/vec4 v0x557234304440_0;
+    %load/vec4 v0x557234304520_0;
+    %and;
+    %store/vec4 v0x557234304380_0, 0, 64;
+    %jmp T_0.5;
+T_0.1 ;
+    %load/vec4 v0x557234304440_0;
+    %load/vec4 v0x557234304520_0;
+    %or;
+    %store/vec4 v0x557234304380_0, 0, 64;
+    %jmp T_0.5;
+T_0.2 ;
+    %load/vec4 v0x557234304440_0;
+    %load/vec4 v0x557234304520_0;
+    %add;
+    %store/vec4 v0x557234304380_0, 0, 64;
+    %jmp T_0.5;
+T_0.3 ;
+    %load/vec4 v0x557234304440_0;
+    %load/vec4 v0x557234304520_0;
+    %sub;
+    %store/vec4 v0x557234304380_0, 0, 64;
+    %jmp T_0.5;
+T_0.5 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x5572342ef5f0;
+T_1 ;
+    %vpi_call 2 14 "$dumpfile", "alu_test.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5572342ef770 {0 0 0};
+    %vpi_call 2 16 "$monitor", "%b, %b", v0x557234304890_0, v0x557234304b00_0 {0 0 0};
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304930_0, 0, 64;
+    %pushi/vec4 4, 0, 64;
+    %store/vec4 v0x557234304a30_0, 0, 64;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x5572343047b0_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304930_0, 0, 64;
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304a30_0, 0, 64;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x5572343047b0_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 64;
+    %store/vec4 v0x557234304930_0, 0, 64;
+    %pushi/vec4 5, 0, 64;
+    %store/vec4 v0x557234304a30_0, 0, 64;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v0x5572343047b0_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304930_0, 0, 64;
+    %pushi/vec4 4, 0, 64;
+    %store/vec4 v0x557234304a30_0, 0, 64;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5572343047b0_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304930_0, 0, 64;
+    %pushi/vec4 3, 0, 64;
+    %store/vec4 v0x557234304a30_0, 0, 64;
+    %pushi/vec4 8, 0, 4;
+    %store/vec4 v0x5572343047b0_0, 0, 4;
+    %delay 10000, 0;
+    %vpi_call 2 23 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "alu_test.v";
+    "./alu.v";
